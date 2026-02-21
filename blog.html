@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="dark" lang="es">
+
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -17,7 +18,8 @@
                         "background-dark": "#1c1022",
                     },
                     fontFamily: {
-                        "display": ["Spline Sans", "sans-serif"]
+                        "display": ["Spline Sans", "sans-serif"],
+                        "sans": ["Spline Sans", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
                 },
@@ -25,9 +27,9 @@
         }
     </script>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&family=Patrick+Hand&display=swap"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
@@ -38,31 +40,47 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        body { 
-            background-color: #0a0510; 
+        body {
+            background-color: #0a0510;
             background-image: radial-gradient(circle at 50% 20%, rgba(123, 44, 191, 0.15) 0%, transparent 60%);
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
-        
-        .premium-card { 
+
+        /* Hero Section - Remove white border effect */
+        section.relative.overflow-hidden.rounded-xl {
+            border: none !important;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            outline: none !important;
+        }
+
+        section.relative.overflow-hidden.rounded-xl img {
+            border: none !important;
+            outline: none !important;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .premium-card {
             background: rgba(30, 10, 50, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-radius: 25px; 
-            border: 1.5px solid #7b2cbf; 
+            border-radius: 25px;
+            border: 1.5px solid #7b2cbf;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             height: 100%;
             overflow: hidden;
         }
-        
-        .premium-card:hover { 
-            transform: translateY(-8px); 
+
+        .premium-card:hover {
+            transform: translateY(-8px);
             border-color: #ad2bee;
             box-shadow: 0 20px 50px rgba(123, 44, 191, 0.4);
         }
-        
+
         .card-image {
             width: 100%;
             aspect-ratio: 1/1;
@@ -70,7 +88,7 @@
             position: relative;
             border-radius: 20px 20px 0 0;
         }
-        
+
         .premium-card::before {
             content: '';
             position: absolute;
@@ -78,10 +96,11 @@
             left: 0;
             width: 100%;
             height: 35%;
-            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
             z-index: 1;
             pointer-events: none;
         }
+
         .card-content {
             padding: 24px;
             flex: 1;
@@ -90,16 +109,18 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .card-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
+            font-family: 'Spline Sans', sans-serif;
+            font-weight: 800;
             font-size: clamp(1.1rem, 4vw, 1.3rem);
             color: #ffffff;
             margin-bottom: 12px;
             line-height: 1.3;
+            font-style: italic;
+            letter-spacing: -0.02em;
         }
-        
+
         .card-text {
             color: #c0c0c0;
             font-size: 0.95rem;
@@ -107,14 +128,15 @@
             margin-bottom: 16px;
             flex: 1;
         }
-        
+
         .card-btn {
             background: linear-gradient(135deg, #7b2cbf 0%, #ad2bee 100%);
             color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.85rem;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-family: 'Spline Sans', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border: none;
@@ -122,48 +144,90 @@
             transition: all 0.3s ease;
             width: 100%;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
-        
+
         .card-btn:hover {
-            box-shadow: 0 8px 20px rgba(123, 44, 191, 0.4);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(173, 43, 238, 0.5);
+            transform: translateY(-2px) scale(1.02);
         }
-        
+
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
             margin-top: 32px;
         }
-        
+
         @media (min-width: 768px) {
             .cards-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         @media (min-width: 1024px) {
             .cards-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
-        
-        .title-guerra { font-family: 'Poppins', sans-serif; font-weight: 900; font-size: clamp(4rem, 12vw, 6rem); line-height: 0.9; letter-spacing: -0.03em; }
-        
-        .sticker-label { position: absolute; top: 1.2rem; left: 1.2rem; background: white; color: black; padding: 4px 14px; border-radius: 8px; font-weight: 900; font-size: 10px; text-transform: uppercase; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 5px; }
-        
-        .filter-btn { transition: all 0.3s ease; }
-        .filter-active { background-color: #ad2bee !important; color: white !important; }
 
-        .blog-item { transition: all 0.4s ease; }
-        .hidden-item { display: none; opacity: 0; transform: scale(0.95); }
+        .title-guerra {
+            font-family: 'Spline Sans', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            font-size: clamp(4rem, 12vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+        }
+
+        .sticker-label {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            background: white;
+            color: black;
+            padding: 4px 14px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 10px;
+            text-transform: uppercase;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-active {
+            background-color: #ad2bee !important;
+            color: white !important;
+        }
+
+        .blog-item {
+            transition: all 0.4s ease;
+        }
+
+        .hidden-item {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
     </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden flex flex-col">
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden flex flex-col">
 
     <!-- Standardized Header -->
-    <header class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-4">
+    <header
+        class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-4">
         <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
             <div class="flex items-center gap-8">
                 <a href="index.html" class="flex items-center gap-2 text-primary">
@@ -173,9 +237,12 @@
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex items-center gap-6">
                     <a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Inicio</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors text-primary" href="blog.html">Blog</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="eventos.html">Eventos</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="recursos.html">Recursos</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors text-primary"
+                        href="blog.html">Blog</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors"
+                        href="eventos.html">Eventos</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors"
+                        href="recursos.html">Recursos</a>
                 </nav>
             </div>
 
@@ -209,63 +276,92 @@
 
     <main class="flex-grow pt-10 pb-20 px-4 max-w-7xl mx-auto w-full">
         <!-- Hero Section with Image -->
-        <section class="relative overflow-hidden rounded-xl mb-20">
+        <section class="relative overflow-hidden rounded-xl mb-20"
+            style="border: none !important; outline: none !important; box-shadow: none !important; -webkit-box-shadow: none !important;">
+
             <div
                 class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/70 to-transparent z-10">
             </div>
             <img class="w-full h-[350px] object-cover" alt="Blog ARMY Universe - Wallpaper"
-                src="imagenes/wallper encabezado.jpg" />
-            <div class="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16">
+                src="imagenes/wallper encabezado.jpg" style="border: none; display: block; margin: 0; padding: 0;" />
+            <!-- <div class="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16" style="border: none !important; outline: none !important; box-shadow: none !important;">
                 <div class="bg-primary text-white px-4 py-2 rounded-full text-[11px] font-900 uppercase tracking-widest inline-block mb-6 shadow-lg w-fit">¡Lo Más Fresh! 💜</div>
                 <h2 class="text-5xl md:text-7xl font-black italic tracking-tighter mb-4">The <span class="text-primary">Purple</span> Blog</h2>
                 <p class="text-xl text-slate-300 font-medium max-w-2xl">Noticias, teorías y todo el universo BTS en un solo lugar 💜</p>
+            </div> -->
+            <div class="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16"
+                style="border: none !important; outline: none !important; box-shadow: none !important;">
+                <span
+                    class="inline-block bg-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 w-fit">ARMY
+                    PERÚ</span>
+                <h2 class="text-5xl md:text-7xl font-black italic tracking-tighter mb-4">THE <span
+                        class="text-primary">PURPLE</span> BLOG</h2>
+                <p class="text-xl text-slate-300 font-medium max-w-2xl">Noticias, teorías y todo el universo BTS en un
+                    solo lugar 💜</p>
             </div>
         </section>
 
         <div class="flex flex-wrap gap-3 mb-12 border-b border-white/5 pb-8">
-            <button onclick="applyFilter('todas')" id="filter-todas" class="filter-btn filter-active px-8 py-3 rounded-full bg-primary text-white text-[11px] font-900 uppercase transition-all shadow-md hover:shadow-lg">Todas</button>
-            <button onclick="applyFilter('noticias')" id="filter-noticias" class="filter-btn px-8 py-3 rounded-full bg-white/5 text-slate-300 text-[11px] font-900 uppercase hover:bg-white/10 transition-all">Noticias</button>
-            <button onclick="applyFilter('spotlight')" id="filter-spotlight" class="filter-btn px-8 py-3 rounded-full bg-white/5 text-slate-300 text-[11px] font-900 uppercase hover:bg-white/10 transition-all">Spotlight</button>
-            <button onclick="applyFilter('teorias')" id="filter-teorias" class="filter-btn px-8 py-3 rounded-full bg-white/5 text-slate-300 text-[11px] font-900 uppercase hover:bg-white/10 transition-all">Teorías</button>
+            <button onclick="applyFilter('todas')" id="filter-todas"
+                class="filter-btn filter-active px-8 py-3 rounded-full bg-primary text-white text-[11px] font-900 uppercase transition-all shadow-md hover:shadow-lg">Todas</button>
+            <button onclick="applyFilter('noticias')" id="filter-noticias"
+                class="filter-btn px-8 py-3 rounded-full bg-white/5 text-slate-300 text-[11px] font-900 uppercase hover:bg-white/10 transition-all">Noticias</button>
+            <button onclick="applyFilter('spotlight')" id="filter-spotlight"
+                class="filter-btn px-8 py-3 rounded-full bg-white/5 text-slate-300 text-[11px] font-900 uppercase hover:bg-white/10 transition-all">Spotlight</button>
+            <button onclick="applyFilter('teorias')" id="filter-teorias"
+                class="filter-btn px-8 py-3 rounded-full bg-white/5 text-slate-300 text-[11px] font-900 uppercase hover:bg-white/10 transition-all">Teorías</button>
         </div>
 
         <div class="cards-grid">
             <!-- Card 1: Hoseok -->
             <div class="premium-card blog-item" data-category="noticias">
-                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600" alt="Hoseok" class="card-image">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=600" alt="Hoseok"
+                    class="card-image">
                 <div class="card-content">
                     <h3 class="card-title">El efecto Hobi: 350M de razones para sonreír ☀️</h3>
-                    <p class="card-text">Ni el éxito ni el tiempo cambian a nuestro sol. Hoseok celebra su cumple donando 350M de wones a hospitales y refugios. ¡Sigue el rastro de su luz este 2026!</p>
-                    <a href="blog-hobi.html" class="card-btn" style="text-decoration: none;">Explora el artículo aquí</a>
+                    <p class="card-text">Ni el éxito ni el tiempo cambian a nuestro sol. Hoseok celebra su cumple
+                        donando 350M de wones a hospitales y refugios. ¡Sigue el rastro de su luz este 2026!</p>
+                    <a href="blog-hobi.html" class="card-btn" style="text-decoration: none;">Explora el artículo
+                        aquí</a>
                 </div>
             </div>
             <!-- Card 2: Jin -->
             <div class="premium-card blog-item" data-category="noticias">
-                <img src="https://images.unsplash.com/photo-1439405326854-014607f694d7?q=80&w=600" alt="Jin" class="card-image">
+                <img src="https://images.unsplash.com/photo-1439405326854-014607f694d7?q=80&w=600" alt="Jin"
+                    class="card-image">
                 <div class="card-content">
                     <h3 class="card-title">Del escenario al océano: Jin en la ONU 🌊</h3>
-                    <p class="card-text">De Super Tuna a Embajador Global de la ONU. Jin lanza "The Purple Ocean Project" para salvar nuestros mares. Su misión: eliminar plástico de costas internacionales este 2026.</p>
+                    <p class="card-text">De Super Tuna a Embajador Global de la ONU. Jin lanza "The Purple Ocean
+                        Project" para salvar nuestros mares. Su misión: eliminar plástico de costas internacionales este
+                        2026.</p>
                     <a href="blog-jin.html" class="card-btn" style="text-decoration: none;">Explora el artículo aquí</a>
                 </div>
             </div>
 
             <!-- Card 3: ARMY Perú -->
             <div class="premium-card blog-item" data-category="spotlight">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" alt="ARMY Perú" class="card-image">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" alt="ARMY Perú"
+                    class="card-image">
                 <div class="card-content">
                     <h3 class="card-title">Raíces moradas: ARMY Perú reforesta 🇵🇪</h3>
-                    <p class="card-text">El amor por BTS se convierte en vida. El fandom peruano planta miles de árboles nativos para proteger el futuro. ¡Descubre cómo unirte a la marea ecológica! 💜</p>
-                    <a href="blog-army-peru.html" class="card-btn" style="text-decoration: none;">Explora el artículo aquí</a>
+                    <p class="card-text">El amor por BTS se convierte en vida. El fandom peruano planta miles de árboles
+                        nativos para proteger el futuro. ¡Descubre cómo unirte a la marea ecológica! 💜</p>
+                    <a href="blog-army-peru.html" class="card-btn" style="text-decoration: none;">Explora el artículo
+                        aquí</a>
                 </div>
             </div>
 
             <!-- Card 4: Teoría -->
             <div class="premium-card blog-item" data-category="teorias">
-                <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?q=80&w=600" alt="Teoría" class="card-image">
+                <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?q=80&w=600" alt="Teoría"
+                    class="card-image">
                 <div class="card-content">
                     <h3 class="card-title">Teoría del 8: ¿Es ARMY el miembro? ♾️</h3>
-                    <p class="card-text">El regreso de BTS de 2026 trae un enigma: ¿por qué dejan espacio para un octavo integrante? Teorías de coreografía, simbología y algo más. ¡Descubre si eres el miembro que falta!</p>
-                    <a href="blog-teoria.html" class="card-btn" style="text-decoration: none;">Explora el artículo aquí</a>
+                    <p class="card-text">El regreso de BTS de 2026 trae un enigma: ¿por qué dejan espacio para un octavo
+                        integrante? Teorías de coreografía, simbología y algo más. ¡Descubre si eres el miembro que
+                        falta!</p>
+                    <a href="blog-teoria.html" class="card-btn" style="text-decoration: none;">Explora el artículo
+                        aquí</a>
                 </div>
             </div>
         </div>
@@ -305,9 +401,9 @@
                     <span class="material-symbols-outlined text-primary">rocket_launch</span>
                     <span class="text-2xl font-black italic tracking-tighter">ARMY UNIVERSE</span>
                 </div>
-                <p class="text-slate-500 text-sm">Hecho con 💜</p> 
+                <p class="text-slate-500 text-sm">Hecho con 💜</p>
             </div>
-            
+
             <!-- Center Section: Follow Us + Social Icons -->
             <div class="flex flex-col items-center gap-3 flex-1">
                 <p class="text-slate-300 text-sm font-semibold">Siguenos en nuestras redes</p>
@@ -329,9 +425,10 @@
                     </a>
                 </div>
             </div>
-            
+
             <!-- Right Section: Copyright -->
-            <div class="text-slate-500 text-[10px] uppercase font-bold tracking-widest text-center md:text-right flex-1">
+            <div
+                class="text-slate-500 text-[10px] uppercase font-bold tracking-widest text-center md:text-right flex-1">
                 © 2026 ARMY UNIVERSE — Caminando junto a BTS.
             </div>
         </div>
@@ -339,4 +436,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

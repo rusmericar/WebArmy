@@ -43,6 +43,22 @@
     
     <!-- Post-its Custom Styles -->
     <style>
+        /* Hero Section - Remove white border effect */
+        section.relative.overflow-hidden.rounded-xl {
+            border: none !important;
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            outline: none !important;
+        }
+        
+        section.relative.overflow-hidden.rounded-xl img {
+            border: none !important;
+            outline: none !important;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        
         .post-it {
             position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
@@ -182,13 +198,14 @@
 
     <main class="flex-grow pt-10 pb-20 px-4 max-w-7xl mx-auto w-full">
         <!-- Hero Section -->
-        <section class="relative overflow-hidden rounded-xl mb-20 shadow-xl">
+        <section class="relative overflow-hidden rounded-xl mb-20" style="border: none !important; outline: none !important; box-shadow: none !important; -webkit-box-shadow: none !important;">
+            
             <div
                 class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/70 to-transparent z-10">
             </div>
             <img class="w-full h-[350px] object-cover object-[center_65%] block" alt="Eventos ARMY Perú"
-                src="imagenes/eventos.jpg" />
-            <div class="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16">
+                src="imagenes/eventos.jpg" style="border: none; display: block; margin: 0; padding: 0;" />
+            <div class="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16" style="border: none !important; outline: none !important; box-shadow: none !important;">
                 <span
                     class="inline-block bg-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 w-fit">ARMY
                     PERÚ</span>
@@ -434,7 +451,7 @@
                 <!-- CTA Button -->
                 <div class="text-center">
                     <button
-                        onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSc_example/viewform', '_blank')"
+                        onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScCd8jyf5aMXAYO4XmPZCHw5wW7KuqzeKCNNK1R8cr4MzpvjQ/viewform?usp=publish-editor', '_blank')"
                         class="group relative inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-full font-black text-lg shadow-[0_0_40px_rgba(173,43,238,0.4)] hover:shadow-[0_0_60px_rgba(173,43,238,0.6)] transition-all duration-300 hover:scale-105">
                         <span class="text-2xl group-hover:rotate-12 transition-transform">📌</span>
                         <span>Envia tu sugerencia</span>
