@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>La Teoría del 8 | The Purple Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { "primary": "#ad2bee", "background-dark": "#120a16" },
+                    fontFamily: { "sans": ["Inter", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { 
+            background-color: #0a0510; 
+            background-image: radial-gradient(circle at 50% 20%, rgba(123, 44, 191, 0.15) 0%, transparent 60%);
+            scroll-behavior: smooth; 
+        }
+
+        .article-header {
+            background: transparent;
+            border-bottom: 2px solid rgba(123, 44, 191, 0.3);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .article-subtitle {
+            color: #ad2bee;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            color: #ffffff;
+            line-height: 1.2;
+            margin: 1rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .article-content {
+            color: #c0c0c0;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content strong {
+            color: #ad2bee;
+            font-weight: 700;
+        }
+
+        .article-section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #ad2bee;
+            margin: 2rem 0 1.5rem 0;
+            line-height: 1.3;
+        }
+
+        .highlight-point {
+            background: rgba(30, 10, 50, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 4px solid #ad2bee;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-point:hover {
+            transform: translateX(8px);
+            background: rgba(30, 10, 50, 0.8);
+            box-shadow: 0 10px 30px rgba(173, 44, 238, 0.2);
+        }
+
+        .highlight-point strong {
+            color: #ad2bee;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.15) 0%, rgba(173, 44, 238, 0.1) 100%);
+            border-left: 5px solid #ad2bee;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            color: #ad2bee;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .quote-author {
+            color: #7b2cbf;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .infinity-symbol {
+            color: #ad2bee;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, #7b2cbf 0%, #ad2bee 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .engagement-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .engagement-btn {
+            background: rgba(123, 44, 191, 0.2);
+            border: 1px solid #ad2bee;
+            color: #ad2bee;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .engagement-btn:hover {
+            background: #ad2bee;
+            color: white;
+            box-shadow: 0 8px 20px rgba(173, 44, 238, 0.3);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(173, 44, 238, 0.1);
+            border: 1px solid #7b2cbf;
+            color: #ad2bee;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #ad2bee;
+            color: white;
+            box-shadow: 0 8px 20px rgba(173, 44, 238, 0.3);
+        }
+
+        .comment-counter {
+            color: #7b2cbf;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .math-highlight {
+            color: #ad2bee;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen font-sans">
+
+    <header class="w-full border-b border-white/5 bg-[#120a16]/95 px-6 lg:px-20 py-4 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5l2.45 8.05L22.5 11l-8.05 2.45L12 21.5l-2.45-8.05L1.5 11l8.05-2.45z"/></svg>
+                <span class="text-primary italic font-900 text-xl tracking-tighter uppercase">ARMY UNIVERSE</span>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="font-bold text-sm text-white hover:text-primary transition-colors">Inicio</a>
+                <a href="blog.html" class="font-bold text-sm text-primary transition-colors">Blog</a>
+                <a href="eventos.html" class="font-bold text-sm text-white hover:text-primary transition-colors">Eventos</a>
+                <a href="recursos.html" class="font-bold text-sm text-white hover:text-primary transition-colors">Recursos</a>
+            </nav>
+
+            <button class="bg-primary text-white px-6 py-2.5 rounded-full font-bold text-[11px] flex items-center gap-2 uppercase tracking-tight hover:scale-105 transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="w-4 h-4" style="filter: brightness(0) invert(1);">
+                ÚNETE A NUESTRO DISCORD
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-[900px] mx-auto px-6 py-12">
+        <a href="blog.html" class="back-button">← Volver al blog</a>
+
+        <article>
+            <div class="article-header">
+                <span class="article-subtitle">♾️ Teoría Digital</span>
+                <h1 class="article-title">La Teoría del "Ocho": ¿Es ARMY el nuevo integrante de BTS?</h1>
+                <div class="article-meta">
+                    <span>📺 Análisis de Performance</span>
+                    <span>🗓️ Febrero 2026</span>
+                    <span>⏱️ Lectura: 7 minutos</span>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?q=80&w=900" alt="Teoría del 8" class="w-full rounded-2xl shadow-2xl mb-8 border border-white/10">
+
+            <div class="article-content">
+                <p>El regreso de BTS en 2026 no solo ha traído música nueva, sino un enigma que tiene a todo el internet analizando cada coreografía. La pregunta que circula en foros y redes sociales es constante: ¿Por qué las formaciones de 7 están dejando un espacio vacío estratégicamente posicionado?</p>
+            </div>
+
+            <h2 class="article-section-title">El Espacio del Octavo Miembro</h2>
+            <div class="article-content">
+                <p>Muchos expertos en performance y fans teóricos sugieren que el grupo ha evolucionado su concepto de "7" hacia una estructura infinita. No es un error de cálculo; es una invitación. La teoría del ocho propone una nueva conexión espiritual:</p>
+            </div>
+
+            <div class="highlight-point">
+                <strong>La Formación de la Infinitud</strong>
+                El número 8, al girarse, representa el símbolo del infinito (<span class="math-highlight">∞</span>). BTS estaría comunicando que su unidad ya no es un círculo cerrado de siete, sino un lazo eterno donde ARMY es el octavo integrante.
+            </div>
+
+            <div class="highlight-point">
+                <strong>Coreografía de Espejo</strong>
+                Se especula que ciertos pasos de baile están diseñados para completarse solo cuando el fan, desde su lugar, realiza un movimiento simétrico, cerrando visualmente el cuadro.
+            </div>
+
+            <div class="highlight-point">
+                <strong>El Simbolismo del Tatuaje</strong>
+                Algunos conectan esto con los tatuajes de la amistad: al unirse en un patrón específico, revelan un octavo trazo oculto que solo es visible bajo ángulos digitales o luz UV.
+            </div>
+
+            <h2 class="article-section-title">¿Por qué ahora?</h2>
+            <div class="article-content">
+                <p>Tras el servicio militar, el vínculo se ha transformado. Ya no se trata de "ídolo y seguidor", sino de una supervivencia mutua. Al incluir a ARMY como la octava pieza, BTS elimina la barrera del escenario para enviar un mensaje contundente: "Sin ustedes, la formación está incompleta".</p>
+            </div>
+
+            <div class="quote-section">
+                <p class="quote-text">"No somos 7 chicos y millones de fans. Somos una entidad de 8 partes donde el corazón de ARMY es el que dicta el ritmo".</p>
+                <p class="quote-author">— Teoría viral en Weverse, febrero 2026</p>
+            </div>
+
+            <h2 class="article-section-title">La Invitación al Octavo Lugar</h2>
+            <div class="article-content">
+                <p>¿Has notado ese espacio vacío en las nuevas presentaciones? La próxima vez que veas una coreografía, fíjate bien: ese lugar es tuyo. La teoría del ocho no es solo un análisis de movimientos; es una declaración de que en 2026, la distancia entre el escenario y la audiencia ya no existe. ARMY no son simples espectadores, son cómplices de una estructura que solo funciona completa cuando todos estamos unidos. <span class="infinity-symbol">♾️💜</span></p>
+            </div>
+
+            <div class="call-to-action">
+                <div class="cta-title">♾️ ¿Ya notaste el Ocho?</div>
+                <p class="cta-text">Comparte tus observaciones sobre la teoría del octavo miembro. ¿Dónde ves el espacio vacío? ¿Cómo crees que ARMY completa la formación? La mejor interpretación será compartida en nuestro Discord.</p>
+            </div>
+
+            <div class="engagement-buttons">
+                <button class="engagement-btn">👍 Recomendar (892)</button>
+                <button class="engagement-btn">📤 Compartir</button>
+                <button class="engagement-btn">💾 Guardar</button>
+            </div>
+
+            <div class="comment-counter">
+                💬 4,156 comentarios
+            </div>
+        </article>
+    </main>
+
+    <script>
+        document.querySelectorAll('.engagement-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.textContent.includes('Recomendar')) {
+                    let count = parseInt(this.textContent.match(/\d+/)[0]);
+                    this.textContent = `👍 Recomendar (${count + 1})`;
+                } else if (this.textContent.includes('Compartir')) {
+                    alert('¡Compartido! 🎉 Difunde la teoría del octavo integrante');
+                } else if (this.textContent.includes('Guardar')) {
+                    alert('✅ Artículo guardado en tu biblioteca');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

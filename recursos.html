@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Recursos | Army Universe</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ad2bee",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1c1022",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- FontAwesome (Cloudflare CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Standardized Header -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-4">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="flex items-center gap-2 text-primary">
+                    <span class="material-symbols-outlined text-3xl font-bold">auto_awesome</span>
+                    <h1 class="text-xl font-800 tracking-tighter uppercase italic">Army Universe</h1>
+                </a>
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Inicio</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="blog.html">Blog</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors"
+                        href="eventos.html">Eventos</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors text-primary"
+                        href="recursos.html">Recursos</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-4 flex-1 justify-end">
+                <a href="https://discord.gg/YyHsMATQ" target="_blank"
+                    class="hidden md:flex bg-primary hover:scale-105 transition-transform text-white px-6 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary/30">
+                    <i class="fa-brands fa-discord text-sm"></i>
+                    ÚNETE A NUESTRO DISCORD
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-expanded="false">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-primary/20 p-6 flex flex-col gap-4 shadow-xl">
+            <a class="text-lg font-bold hover:text-primary transition-colors" href="index.html">Inicio</a>
+            <a class="text-lg font-bold hover:text-primary transition-colors" href="blog.html">Blog</a>
+            <a class="text-lg font-bold hover:text-primary transition-colors" href="eventos.html">Eventos</a>
+            <a class="text-lg font-bold hover:text-primary transition-colors text-primary"
+                href="recursos.html">Recursos</a>
+            <a href="https://discord.gg/YyHsMATQ" target="_blank"
+                class="bg-primary text-white px-6 py-3 rounded-full font-bold text-center flex items-center justify-center gap-2 mt-2">
+                <i class="fa-brands fa-discord"></i> Únete a nuestro Discord
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-10 pb-20 px-4 max-w-7xl mx-auto w-full">
+        <!-- Hero Section -->
+        <section class="relative mb-20">
+            <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+            <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 blur-[120px] rounded-full"></div>
+            <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="flex-1 space-y-6">
+                    <div
+                        class="inline-block glass px-4 py-1 rounded-full border border-primary/30 text-primary text-xs font-bold tracking-widest uppercase">
+                        Zona de Combate de Streams 💣
+                    </div>
+                    <h2 class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter">
+                        Freebies <br /> y <span class="text-primary italic">Recursos</span>
+                    </h2>
+                    <p class="text-xl text-slate-400 max-w-lg">
+                        Aquí encontrarás recursos, guías, descargables, freebies y más. ✨
+                    </p>
+                    <div class="flex gap-4">
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-full font-black hover:shadow-[0_0_25px_rgba(173,43,238,0.6)] transition-all">
+                            VER GUÍAS AHORA
+                        </button>
+                        <button
+                            class="glass px-8 py-4 rounded-full font-bold border border-primary/20 hover:bg-primary/10 transition-colors">
+                            Bajar Templates
+                        </button>
+                    </div>
+                </div>
+                <div class="relative flex-1 flex justify-center">
+                    <div
+                        class="w-80 h-80 rounded-full bg-gradient-to-tr from-primary to-purple-900 flex items-center justify-center p-8 relative animate-pulse shadow-[0_0_50px_rgba(173,43,238,0.3)]">
+                        <div
+                            class="w-full h-full rounded-full border-4 border-dashed border-white/20 animate-spin-slow absolute">
+                        </div>
+                        <span class="material-symbols-outlined text-8xl text-white">star_half</span>
+                    </div>
+                    <!-- Virtual Stickers -->
+                    <div
+                        class="absolute top-0 right-0 glass px-4 py-2 rounded-xl sticker-rotate-2 border-2 border-primary shadow-lg font-black text-primary">
+                        ¡GAAA!</div>
+                    <div
+                        class="absolute bottom-4 left-0 glass px-4 py-2 rounded-xl sticker-rotate-1 border-2 border-white/20 shadow-lg font-black italic text-white">
+                        BORAHAE</div>
+                    <div
+                        class="absolute -top-10 left-20 bg-yellow-400 text-black px-3 py-1 rounded-full font-black text-xs">
+                        TOP 1 MUNDIAL</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Resources Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            <!-- Guías de Votación -->
+            <div class="glass p-8 rounded-xl hover:border-primary transition-all group">
+                <div
+                    class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white">how_to_vote</span>
+                </div>
+                <h3 class="text-2xl font-black mb-4">Guías de Votación</h3>
+                <p class="text-slate-400 text-sm mb-6">Paso a paso para MAMA y Billboard. No te quedes "ya fuiste", vota
+                    aquí.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2 text-sm font-medium text-primary">
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span> MAMA 2024 Tutorial
+                    </li>
+                    <li class="flex items-center gap-2 text-sm font-medium text-slate-300">
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span> Billboard Stream
+                    </li>
+                </ul>
+            </div>
+            <!-- Diccionario ARMY -->
+            <div class="glass p-8 rounded-xl hover:border-primary transition-all group">
+                <div
+                    class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white">menu_book</span>
+                </div>
+                <h3 class="text-2xl font-black mb-4">Diccionario ARMY</h3>
+                <p class="text-slate-400 text-sm mb-6">Slang explicado con toda la sazón peruana. Pa' que entiendas todo
+                    el chisme.</p>
+                <div class="bg-background-dark/50 p-3 rounded-lg border border-primary/10">
+                    <p class="text-xs font-bold text-primary mb-1">BIAS:</p>
+                    <p class="text-xs text-slate-400">Tu preferido, tu 'causa' máximo del grupo. Al que le rezas.</p>
+                </div>
+            </div>
+            <!-- Directorio de Tiendas -->
+            <div class="glass p-8 rounded-xl hover:border-primary transition-all group">
+                <div
+                    class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white">shopping_bag</span>
+                </div>
+                <h3 class="text-2xl font-black mb-4">Tiendas Perú</h3>
+                <p class="text-slate-400 text-sm mb-6">Los "huaris" de confianza en Polvos Azules y Arenales para tu
+                    merch.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        class="bg-primary/10 border border-primary/20 text-[10px] font-bold px-2 py-1 rounded-full text-primary">Arenales
+                        Plaza</span>
+                    <span
+                        class="bg-primary/10 border border-primary/20 text-[10px] font-bold px-2 py-1 rounded-full text-primary">Polvos
+                        Azules</span>
+                </div>
+            </div>
+            <!-- Templates -->
+            <div class="glass p-8 rounded-xl hover:border-primary transition-all group">
+                <div
+                    class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span class="material-symbols-outlined text-primary group-hover:text-white">palette</span>
+                </div>
+                <h3 class="text-2xl font-black mb-4">Templates RRSS</h3>
+                <p class="text-slate-400 text-sm mb-6">Wallpapers y iconos aesthetic para que tu perfil sea el más pila.
+                </p>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-10 bg-gradient-to-br from-primary to-purple-800 rounded-lg"></div>
+                    <div class="h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg"></div>
+                    <div class="h-10 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-lg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discord CTA Section -->
+        <section
+            class="relative overflow-hidden bg-primary rounded-xl p-12 md:p-20 text-center shadow-[0_0_50px_rgba(173,43,238,0.4)]">
+            <div class="absolute inset-0 opacity-20"
+                style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;">
+            </div>
+            <div class="absolute -top-10 -right-10 w-64 h-64 bg-white/20 blur-[80px] rounded-full"></div>
+            <div class="relative z-10 flex flex-col items-center gap-8">
+                <div class="flex items-center gap-4">
+                    <div class="flex -space-x-4">
+                        <img class="w-12 h-12 rounded-full border-2 border-primary" data-alt="User avatar 1"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDffTAjK-fiftJcrdcDCuzPei8VUhNPuK_ZWgN3fKMuFJo7Il5UKyOVPcEquW5-wins1j4nJVV9zApHJnof7JkGaDUQi5FRtHA8dsDf2EkA9VdKyAsxLqjJyHJJlOOQ74-_RcTB5KMfqoELv9yMbr-Ve-E2cU95xzymt-hZ4ba3cHavFy8CT5UtRWfy3zq9yCuYnzNTKQ961dsF90hGx4pvNPS5gtHUT8Dnlku4zQor6aHm7NexWnb4dnDehiPFiulZI0thyrR4euU" />
+                        <img class="w-12 h-12 rounded-full border-2 border-primary" data-alt="User avatar 2"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKBwz5cSNHFM1V5eZQvJepZ3ofqY6aWomD5z7sLV6Fd2dznVO8maFROTOUxMUccYXxeK3LKz1bPtxrDA-916KieAGLILwbr2b3aOpybD4FwaxpYrY7VYHnM0wEPKhhiMVusDRCmBudGVYg1Uh9mkkpgK3h4URTHVMzYgPkiofWdVL_G5HR7E-0UnBPW6vIuGFypq_Q1-b_2jWiSXyIOakaarT1EBRFUkZk8wDmH6-0mO8Wyiwpm0nidYYOPEsAw_uao4Zj3ybY0-8" />
+                        <img class="w-12 h-12 rounded-full border-2 border-primary" data-alt="User avatar 3"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWIe9bbFt7_3yPKDpHA31x1D-pd6_Bsvg0puxFhJ8tljAsK-2lgO6Bs91KBovqIedeu9n7gvszBSkb-pmkaK8l0M-i5YZfDNLuz_0UdZ7KA-aO58HCbAij-jsRTCfuJl2L-zCUXamESP9W14hiExaQEAvu2JGNO6BAi6iCMx-bXblsQurI2GEKTZ0S7CKorHBK3w7GrETy3kBy-XplqPGwhESnSKZVBmKktea8orS34vPcY6TkuADFcMiQbii_men0PajVOWciVDQ" />
+                        <div
+                            class="w-12 h-12 rounded-full bg-background-dark flex items-center justify-center text-[10px] font-bold border-2 border-primary text-white">
+                            +50k</div>
+                    </div>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-white leading-tight">¡ÚNETE A LA MANCHA <br /> EN
+                    DISCORD! 👍</h2>
+                <p class="text-white/80 max-w-xl text-lg font-medium">
+                    Ya somos más de 50,000 Armys activas compartiendo data, memes y streams las 24 horas. ¡No seas falla
+                    y entra ya!
+                </p>
+                <button
+                    class="bg-white text-primary px-12 py-5 rounded-full font-black text-xl hover:bg-background-dark hover:text-white transition-all shadow-2xl flex items-center gap-3">
+                    <span class="material-symbols-outlined font-black">login</span>
+                    ENTRAR AL DISCORD
+                </button>
+                <div class="flex gap-8 mt-4 text-white/60 font-bold uppercase tracking-widest text-xs">
+                    <div class="flex flex-col">
+                        <span class="text-white text-2xl font-black">2.4k</span>
+                        Online ahora
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white text-2xl font-black">150+</span>
+                        Canales de voz
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dictionary Teaser (Gen Z Peruvian Style) -->
+        <section class="space-y-8">
+            <div class="flex items-center justify-between">
+                <h2 class="text-3xl font-black">Diccionario ARMY x Perú 🇵🇪</h2>
+                <button class="text-primary font-bold flex items-center gap-2 hover:underline">
+                    Ver todo el glosario <span class="material-symbols-outlined">trending_flat</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-6 rounded-xl border-l-4 border-l-primary">
+                    <h4 class="text-primary font-black text-xl mb-2">Stan</h4>
+                    <p class="text-slate-400 italic mb-4">"Causa, yo staneo a Jimin desde el día 1"</p>
+                    <p class="text-sm">Ser ultra fan, seguidor fiel, el que se sabe hasta su tipo de sangre.</p>
+                </div>
+                <div class="glass p-6 rounded-xl border-l-4 border-l-primary">
+                    <h4 class="text-primary font-black text-xl mb-2">Pila</h4>
+                    <p class="text-slate-400 italic mb-4">"¡Gentita, pónganse pilas con el stream!"</p>
+                    <p class="text-sm">Estar activo, con energía, listo para la guerra de votos.</p>
+                </div>
+                <div class="glass p-6 rounded-xl border-l-4 border-l-primary">
+                    <h4 class="text-primary font-black text-xl mb-2">Ya Fuiste</h4>
+                    <p class="text-slate-400 italic mb-4">"Si no compraste preventa, ya fuiste..."</p>
+                    <p class="text-sm">Perder la oportunidad, quedarse fuera del evento o del trend.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Standardized Footer -->
+    <footer class="glass border-t-primary/20 py-12 px-4 mt-auto">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <!-- Left Section: Logo and Made with -->
+            <div class="flex flex-col items-center md:items-start gap-2 flex-1">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">rocket_launch</span>
+                    <span class="text-2xl font-black italic tracking-tighter">ARMY UNIVERSE</span>
+                </div>
+                <p class="text-slate-500 text-sm">Hecho con 💜</p> 
+            </div>
+            
+            <!-- Center Section: Follow Us + Social Icons -->
+            <div class="flex flex-col items-center gap-3 flex-1">
+                <p class="text-slate-300 text-sm font-semibold">Siguenos en nuestras redes</p>
+                <div class="flex gap-6">
+                    <a aria-label="Instagram"
+                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
+                        href="#">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a aria-label="TikTok"
+                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
+                        href="#">
+                        <i class="fa-brands fa-tiktok text-lg"></i>
+                    </a>
+                    <a aria-label="Facebook"
+                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
+                        href="#">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Section: Copyright -->
+            <div class="text-slate-500 text-[10px] uppercase font-bold tracking-widest text-center md:text-right flex-1">
+                © 2026 ARMY UNIVERSE — Caminando junto a BTS.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

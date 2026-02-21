@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>El Efecto Hobi | Army Universe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { "primary": "#ad2bee", "background-dark": "#0a0510" },
+                    fontFamily: { "sans": ["Poppins", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        body { 
+            background-color: #0a0510; 
+            background-image: radial-gradient(circle at 50% 20%, rgba(123, 44, 191, 0.1) 0%, transparent 60%);
+            scroll-behavior: smooth; 
+        }
+        
+        .article-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(123, 44, 191, 0.3);
+        }
+        
+        .article-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+        
+        .article-subtitle {
+            color: #ad2bee;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .article-meta {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .article-content {
+            color: #d0d0d0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-top: 40px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .lesson-card {
+            background: rgba(30, 10, 50, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #7b2cbf;
+            border-radius: 15px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .lesson-card:hover {
+            background: rgba(30, 10, 50, 0.8);
+            border-color: #ad2bee;
+            transform: translateX(8px);
+        }
+        
+        .lesson-number {
+            background: linear-gradient(135deg, #7b2cbf 0%, #ad2bee 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .lesson-content h3 {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .lesson-content p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+        
+        .quote-section {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.2) 0%, rgba(173, 43, 238, 0.1) 100%);
+            border-left: 4px solid #ad2bee;
+            padding: 32px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .quote-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        
+        .quote-author {
+            color: #ad2bee;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .back-btn {
+            color: #ad2bee;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: #ffffff;
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen font-sans">
+
+    <header class="w-full border-b border-white/5 bg-[#0a0510]/95 px-6 lg:px-20 py-4 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5l2.45 8.05L22.5 11l-8.05 2.45L12 21.5l-2.45-8.05L1.5 11l8.05-2.45z"/></svg>
+                <span class="text-primary italic font-900 text-xl tracking-tighter uppercase">ARMY UNIVERSE</span>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-10">
+                <a href="index.html" class="font-bold text-sm text-white hover:text-primary transition-colors">Inicio</a>
+                <a href="blog.html" class="font-bold text-sm text-primary transition-colors">Blog</a>
+                <a href="eventos.html" class="font-bold text-sm text-white hover:text-primary transition-colors">Eventos</a>
+                <a href="recursos.html" class="font-bold text-sm text-white hover:text-primary transition-colors">Recursos</a>
+            </nav>
+
+            <button class="bg-primary text-white px-6 py-2.5 rounded-full font-bold text-[11px] flex items-center gap-2 uppercase tracking-tight hover:scale-105 transition-all">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="w-4 h-4" style="filter: brightness(0) invert(1);">
+                ÚNETE A NUESTRO DISCORD
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-[1000px] mx-auto px-6 py-16 lg:py-24">
+        
+        <a href="blog.html" class="back-btn">← Volver al Blog</a>
+
+        <!-- Hero Section -->
+        <div class="article-image mb-12">
+            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1200" alt="El Efecto Hobi" class="w-full h-auto object-cover">
+        </div>
+
+        <!-- Article Header -->
+        <div class="mb-12">
+            <span class="article-subtitle">☀️ Noticia destacada</span>
+            <h1 class="article-title">El factor Hobi: Cinco razones por las que Hoseok sigue siendo nuestra esperanza</h1>
+            <div class="article-meta">
+                <span>ARMY Editorial</span>
+                <span>•</span>
+                <span>20 de Febrero, 2026</span>
+                <span>•</span>
+                <span>8 min de lectura</span>
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <article class="article-content space-y-6">
+            
+            <p>
+                No es casualidad que K-webs, redes coreanas y plataformas de reproducción de música en todo el mundo hayan coincidido en un mismo sentimiento recientemente: la llegada de Hoseok con su sonrisa es sinónimo de esperanza. Su cumpleaños en 2026 no fue solo un récord de tendencias en las plataformas de Billboard, sino un recordatorio de que existen momentos imposibles que parecen imposibles de estar. Sin embargo, Hoseok aparece en los gráficos nuevamente.
+            </p>
+
+            <p>
+                Durante más de una década alrededor del regalo de un artista, el mundo ha celebrado alrededor de varios refugios de animales, hospitales infantiles y organizaciones benéficas ligadas a su nombre. Cada "Happy Hoseok Day" es una oportunidad donde los fans y el artista unen sus fuerzas. Pero es en estos momentos donde realmente entendemos por qué.
+            </p>
+
+            <p>
+                No es suficiente un mensaje de "vivir para el arte" cuando literalmente lo ves plasmado en cada acción. Hoseok transformó su cumpleaños número 32 en algo más que un festejo: en un movimiento global que demuestra que el cambio comienza con las personas que deciden ver más allá.
+            </p>
+
+            <!-- Quote Section -->
+            <div class="quote-section">
+                <p class="quote-text">"En tu hora hay alegría a mi hora, en tu hora hay que escuchar mis esperanzas. Vive y te vuelvas a ver todos, véles una verdadera idea"</p>
+                <p class="quote-author">— Hoseok, mensaje de cumpleaños 2026</p>
+            </div>
+
+            <!-- Lessons Section -->
+            <div class="mt-16">
+                <h2 class="section-title">✨ Tres lecciones de esperanza:</h2>
+                
+                <div class="lesson-card">
+                    <div class="flex gap-4">
+                        <div class="lesson-number">1</div>
+                        <div class="lesson-content">
+                            <h3>La esperanza es imprescindible</h3>
+                            <p>Puedes servir la duda. Pero para la vida, la duda siempre te guiará a dejarte caer. En cambio, la esperanza es el timón que no te deja hundirse.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="flex gap-4">
+                        <div class="lesson-number">2</div>
+                        <div class="lesson-content">
+                            <h3>Ayudar es el nuevo éxito</h3>
+                            <p>El éxito a veces mide en números. Pero ¿Qué nos motiva cuando todo número fue conquistado? La respuesta que nos mostró Hoseok: ayudar a otros 2,000 personas en cuatro historias simultáneamente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="flex gap-4">
+                        <div class="lesson-number">3</div>
+                        <div class="lesson-content">
+                            <h3>El sol siempre vuelve a salir</h3>
+                            <p>Para ARMY, Hobi es nuestro experimento viviente. Para el mundo, demuestra que siempre existe una razón para creer que la siguiente anoche será mejor. Así es el poder de una sonrisa genuina.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Closing -->
+            <p class="mt-12 text-lg">
+                En fin: toda la vida, este gesto no deberá morir. "Suno Hobi". Para quien acuda de llegar, es el recordatorio perfecto de que los únicos ídolos que importan son los que entienden su responsabilidad con el planeta.
+            </p>
+
+            <p class="font-semibold text-primary">
+                Este 2026, celebramos al Hoseok que nos recuerda qué es lo verdaderamente importante. 💜
+            </p>
+
+        </article>
+
+        <!-- Engagement Section -->
+        <div class="mt-16 pt-12 border-t border-white/10">
+            <div class="flex gap-4 justify-center mb-12">
+                <button class="px-8 py-3 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all">💜 Recomend</button>
+                <button class="px-8 py-3 rounded-full border border-primary text-primary font-bold text-sm hover:bg-primary/10 transition-all">📤 Compartir</button>
+                <button class="px-8 py-3 rounded-full border border-white/20 text-white font-bold text-sm hover:bg-white/10 transition-all">📌 Guardar</button>
+            </div>
+
+            <div class="text-center text-slate-400 text-sm">
+                <p>💬 Comentarios (1,248)</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-white/10 bg-[#0a0510] px-6 lg:px-20 py-12 mt-24">
+        <div class="max-w-[1400px] mx-auto text-center text-slate-400 text-sm">
+            <p>© 2026 ARMY UNIVERSE. Todos los derechos reservados. | Hecho con 💜 para los ARMY</p>
+        </div>
+    </footer>
+
+</body>
+</html>

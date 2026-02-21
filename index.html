@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Army Universe | ¡Habla, Mancha!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ad2bee",
+                        "background-light": "#f7f6f8",
+                        "background-dark": "#1c1022",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols (Keeping per user files) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <!-- FontAwesome (Cloudflare CDN per user request) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden flex flex-col">
+
+    <!-- Standardized Header (from Eventos + Discord Button) -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-4">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="flex items-center gap-2 text-primary">
+                    <span class="material-symbols-outlined text-3xl font-bold">auto_awesome</span>
+                    <h1 class="text-xl font-800 tracking-tighter uppercase italic">Army Universe</h1>
+                </a>
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-semibold hover:text-primary transition-colors text-primary"
+                        href="index.html">Inicio</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="blog.html">Blog</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors"
+                        href="eventos.html">Eventos</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors"
+                        href="recursos.html">Recursos</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-4 flex-1 justify-end">
+                <a href="https://discord.gg/YyHsMATQ" target="_blank"
+                    class="hidden md:flex bg-primary hover:scale-105 transition-transform text-white px-6 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary/30">
+                    <i class="fa-brands fa-discord text-sm"></i>
+                    ÚNETE A NUESTRO DISCORD
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-expanded="false">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-primary/20 p-6 flex flex-col gap-4 shadow-xl">
+            <a class="text-lg font-bold hover:text-primary transition-colors text-primary" href="index.html">Inicio</a>
+            <a class="text-lg font-bold hover:text-primary transition-colors" href="blog.html">Blog</a>
+            <a class="text-lg font-bold hover:text-primary transition-colors" href="eventos.html">Eventos</a>
+            <a class="text-lg font-bold hover:text-primary transition-colors" href="recursos.html">Recursos</a>
+            <a href="https://discord.gg/YyHsMATQ" target="_blank"
+                class="bg-primary text-white px-6 py-3 rounded-full font-bold text-center flex items-center justify-center gap-2 mt-2">
+                <i class="fa-brands fa-discord"></i> Únete a nuestro Discord
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-10 pb-20 px-4 max-w-7xl mx-auto w-full">
+        <!-- Hero Section -->
+        <section class="relative mb-20">
+            <!-- Decorative Stickers (moved inside the glass container) -->
+            <div
+                class="glass p-10 md:p-20 rounded-xl relative overflow-visible flex flex-col items-center text-center gap-8 border-primary/30">
+                <!-- Abstract Background Blobs -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 blur-[100px] rounded-full"></div>
+
+                <!-- Stickers positioned over the glass card - aesthetic distribution -->
+                <!-- Top Left: Wings -->
+                <div class="absolute -top-3 -left-8 sticker hidden lg:block z-50 -rotate-12">
+                    <div class="bg-yellow-400 text-black font-black px-4 py-2 rounded-full text-sm shadow-xl border-2 border-black uppercase tracking-widest">
+                        Wings
+                    </div>
+                </div>
+                <!-- Top Right: Love Yourself -->
+                <div class="absolute -top-2 -right-6 sticker hidden lg:block z-50 rotate-12">
+                    <div class="bg-pink-500 text-white font-black px-4 py-2 rounded-full text-xs shadow-xl border-2 border-white uppercase">
+                        Love Yourself
+                    </div>
+                </div>
+                <!-- Bottom Left: Dark & Wild -->
+                <div class="absolute -bottom-4 -left-5 sticker hidden lg:block z-50 rotate-6">
+                    <div class="bg-blue-500 text-white font-black px-3 py-1 rounded-full text-xs shadow-lg border-2 border-white uppercase tracking-widest">
+                        Dark & Wild
+                    </div>
+                </div>
+                <!-- Bottom Right: Map of the Soul -->
+                <div class="absolute -bottom-3 -right-8 sticker hidden lg:block z-50 -rotate-6">
+                    <div class="bg-indigo-600 text-white font-black px-4 py-2 rounded-full text-xs shadow-lg border-2 border-white uppercase">
+                        Map of the Soul
+                    </div>
+                </div>
+
+                <h1 class="relative text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight sm:leading-none tracking-tight">
+                    <span class="gradient-reveal">¡BIENVENIDA A TU UNIVERSO, <span class="text-primary italic">ARMY!</span> <span class="text-yellow-300">✨</span></span>
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl text-slate-300 font-medium">
+                    Un espacio de noticias y recursos para ARMY en Perú.<br>
+                    Explora nuestro universo, encuentra contenido exclusivo y únete a nuestra comunidad. <span class="ml-1">¡Borahae!</span> 💜
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                    <button
+                        class="group relative bg-primary hover:bg-primary/80 text-white font-black py-5 px-10 rounded-full text-lg shadow-[0_0_40px_rgba(173,43,238,0.4)] transition-all flex items-center gap-3">
+                        ENTRA AL MAGIC SHOP 🔮
+                        <span
+                            class="material-symbols-outlined group-hover:translate-x-1 transition-transform">star</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="mb-20 px-4">
+            <div
+                class="glass p-8 md:p-12 rounded-xl relative overflow-hidden border-primary/40 shadow-[0_0_50px_rgba(173,43,238,0.2)]">
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/30 blur-[100px] rounded-full"></div>
+                <div class="relative z-10 flex flex-col items-center gap-8">
+                    <div class="text-center">
+                        <span
+                            class="bg-yellow-400 text-black font-black px-3 py-1 rounded-md text-xs uppercase tracking-tighter mb-4 inline-block transform -rotate-2 shadow-lg">¡CONFIRMADO!</span>
+                        <h2 class="text-3xl md:text-5xl font-black italic tracking-tighter uppercase">
+                            BTS en <span class="text-primary text-glow">Perú</span>
+                        </h2>
+                        <p class="text-xl font-bold text-slate-300 mt-2">9 de Octubre 2026</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-3xl">
+                        <!-- Days -->
+                        <div
+                            class="glass flex flex-col items-center justify-center p-6 rounded-2xl border-white/10 group hover:border-primary/50 transition-all">
+                            <span id="days"
+                                class="text-4xl md:text-6xl font-black text-white group-hover:scale-110 transition-transform">00</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary mt-2">Días</span>
+                        </div>
+                        <!-- Hours -->
+                        <div
+                            class="glass flex flex-col items-center justify-center p-6 rounded-2xl border-white/10 group hover:border-primary/50 transition-all">
+                            <span id="hours"
+                                class="text-4xl md:text-6xl font-black text-white group-hover:scale-110 transition-transform">00</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary mt-2">Horas</span>
+                        </div>
+                        <!-- Minutes -->
+                        <div
+                            class="glass flex flex-col items-center justify-center p-6 rounded-2xl border-white/10 group hover:border-primary/50 transition-all">
+                            <span id="minutes"
+                                class="text-4xl md:text-6xl font-black text-white group-hover:scale-110 transition-transform">00</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary mt-2">Minutos</span>
+                        </div>
+                        <!-- Seconds -->
+                        <div
+                            class="glass flex flex-col items-center justify-center p-6 rounded-2xl border-white/10 group hover:border-primary/50 transition-all">
+                            <span id="seconds"
+                                class="text-4xl md:text-6xl font-black text-primary text-glow animate-pulse group-hover:scale-110 transition-transform">00</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-primary mt-2">Segundos</span>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-4 text-xs font-bold text-slate-400 hover:text-white flex items-center gap-2 transition-colors">
+                        <span class="material-symbols-outlined text-sm">notifications_active</span>
+                        AVÍSAME CUANDO SALGAN LAS ENTRADAS
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section Preview -->
+        <section class="mb-20">
+            <div class="flex items-center justify-between mb-8 px-4">
+                <h2 class="text-3xl font-black italic uppercase tracking-tighter">
+                    Lo último en la Galaxia 🚀
+                </h2>
+                <a class="text-primary font-bold text-sm hover:underline" href="blog.html">Ver todo</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog Card 1 -->
+                <div
+                    id="blog-card-1"
+                    class="group glass rounded-xl overflow-hidden border-primary/10 hover:border-primary/50 transition-all cursor-pointer relative"
+                    onclick="openBlogModal()">
+                    <div class="h-64 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Hoseok cumpleaños 32"
+                            src="imagenes/hobi hb.jpg" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+                        <div
+                            class="absolute top-4 left-4 sticker bg-white text-black text-[10px] font-black px-2 py-1 rounded-md">
+                            HOBI 💜</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors">Así celebró Hoseok su cumple 32 🎂</h3>
+                        <p class="mt-2 text-slate-400 text-sm line-clamp-2">Descubre el gesto gigante que tuvo nuestro ángel este 2026.</p>
+                    </div>
+                </div>
+                <!-- Blog Card 2 -->
+                <div
+                    id="blog-card-2"
+                    class="group glass rounded-xl overflow-hidden border-primary/10 hover:border-primary/50 transition-all cursor-pointer relative"
+                    onclick="openBlogModalJin()">
+                    <div class="h-64 overflow-hidden relative">
+                        <img class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Jin embajador océano"
+                            src="imagenes/jin oceano.jpg" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+                        <div
+                            class="absolute top-4 left-4 sticker bg-blue-400 text-white text-[10px] font-black px-2 py-1 rounded-md">
+                            JIN 💜</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors">¡Jin es el nuevo protector del océano! 🌊</h3>
+                        <p class="mt-2 text-slate-400 text-sm line-clamp-2">Nuestro Worldwide Handsome acaba de llevar su amor por el mar a otro nivel.</p>
+                    </div>
+                </div>
+                <!-- Blog Card 3 -->
+                <div
+                    id="blog-card-3"
+                    class="group glass rounded-xl overflow-hidden border-primary/10 hover:border-primary/50 transition-all cursor-pointer relative"
+                    onclick="openBlogModalRM()">
+                    <div class="h-64 overflow-hidden relative">
+                        <img class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                            data-alt="RM Pausa chill"
+                            src="imagenes/RMchill.jpg" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+                        <div
+                            class="absolute top-4 left-4 sticker bg-green-500 text-white text-[10px] font-black px-2 py-1 rounded-md">
+                            RM 💜</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors">RM redefine el concepto de "Pausa" 🌿</h3>
+                        <p class="mt-2 text-slate-400 text-sm line-clamp-2">Este 2026, Namjoon decidió llevar su amor por el arte y la lectura fuera de los museos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section Preview -->
+        <section class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="material-symbols-outlined text-4xl text-primary">location_on</span>
+                <h2 class="text-3xl font-black italic uppercase tracking-tighter">
+                    Próximos Eventos 📍
+                </h2>
+            </div>
+            <div class="space-y-4">
+                <!-- Event Item 1 -->
+                <div
+                    class="glass group flex flex-col md:flex-row items-center gap-6 p-6 rounded-xl hover:bg-primary/10 transition-all border-primary/5">
+                    <div class="flex flex-col items-center justify-center bg-white/10 p-4 rounded-xl min-w-[100px]">
+                        <span class="text-xs font-bold text-primary uppercase">Mayo</span>
+                        <span class="text-4xl font-black">15</span>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h4 class="text-xl font-bold">Streaming Party en el Parque de las Aguas</h4>
+                        <p class="text-slate-400">Lima, Perú • 4:00 PM</p>
+                    </div>
+                    <button
+                        class="bg-white/5 hover:bg-primary text-white font-bold py-3 px-8 rounded-full transition-all border border-white/10">
+                        ¡VOY!
+                    </button>
+                </div>
+                <!-- Event Item 2 -->
+                <div
+                    class="glass group flex flex-col md:flex-row items-center gap-6 p-6 rounded-xl hover:bg-primary/10 transition-all border-primary/5">
+                    <div class="flex flex-col items-center justify-center bg-white/10 p-4 rounded-xl min-w-[100px]">
+                        <span class="text-xs font-bold text-primary uppercase">Junio</span>
+                        <span class="text-4xl font-black">02</span>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h4 class="text-xl font-bold">Intercambio de Photocards </h4>
+                        <p class="text-slate-400">Miraflores, Kennedy • 2:00 PM</p>
+                    </div>
+                    <button
+                        class="bg-white/5 hover:bg-primary text-white font-bold py-3 px-8 rounded-full transition-all border border-white/10">
+                        ¡VOY!
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discord Mega Button -->
+        <section class="mb-20 text-center">
+            <div class="relative inline-block w-full group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-indigo-600 via-primary to-pink-600 rounded-xl blur-3xl opacity-30 group-hover:opacity-60 transition-opacity">
+                </div>
+                <button
+                    class="relative w-full bg-[#5865F2] hover:scale-[1.02] transition-transform py-10 rounded-xl flex flex-col md:flex-row items-center justify-center gap-6 px-10 shadow-2xl">
+                    <div class="size-20 bg-white rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fa-brands fa-discord text-4xl text-[#5865F2]"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-3xl md:text-5xl font-black text-white italic tracking-tighter uppercase letter-spacing">¡ÚNETE A NUESTRA ARMY HOUSE EN DISCORD!</h3>
+                        <p class="text-white/80 font-bold text-lg">Stanea y conecta con armys de todo el Perú y Latam.</p>
+                    </div>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Blog Modal -->
+    <div id="blog-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onclick="closeBlogModal(event)">
+        <div class="glass rounded-2xl w-11/12 sm:w-96 max-h-[80vh] overflow-y-auto border-primary/20 relative shadow-2xl" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeBlogModal()" class="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+
+            <!-- Modal Content -->
+            <div class="p-5 sm:p-6 md:p-7">
+                <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white mb-4 pr-8">
+                    Así celebró Hoseok su cumple 32 🐿️
+                </h2>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                    En este 2026 que corre tan rápido, Hobi nos detiene el tiempo con un gesto gigante. Nuestro querido J- Hope celebra su cumpleaños 32 donando 350 millones de wones a hospitales y refugios.
+                </p>
+                <a href="blog-hobi.html" class="w-full bg-primary hover:bg-primary/80 text-white font-black py-3 px-4 sm:px-6 rounded-full transition-all text-sm sm:text-base shadow-lg shadow-primary/30 inline-block text-center">
+                    📖 LEE LA NOTA COMPLETA AQUÍ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jin Blog Modal -->
+    <div id="blog-modal-jin" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onclick="closeBlogModalJin(event)">
+        <div class="glass rounded-2xl w-11/12 sm:w-96 max-h-[80vh] overflow-y-auto border-primary/20 relative shadow-2xl" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeBlogModalJin()" class="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+
+            <!-- Modal Content -->
+            <div class="p-5 sm:p-6 md:p-7">
+                <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white mb-4 pr-8">
+                    Jin es el nuevo protector del océano 🌊
+                </h2>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                    Jin de BTS ha sido nombrado Embajador de la ONU para salvar nuestros océanos. Con su carisma y liderazgo, busca concientizar sobre la preservación de la vida marina. ¿Quieres saber más sobre este nuevo compromiso? 💜
+                </p>
+                <a href="blog-jin.html" class="w-full bg-primary hover:bg-primary/80 text-white font-black py-3 px-4 sm:px-6 rounded-full transition-all text-sm sm:text-base shadow-lg shadow-primary/30 inline-block text-center">
+                    📖 LEE LA NOTA COMPLETA AQUÍ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- RM Blog Modal -->
+    <div id="blog-modal-rm" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm p-4" onclick="closeBlogModalRM(event)">
+        <div class="glass rounded-2xl w-11/12 sm:w-96 max-h-[80vh] overflow-y-auto border-primary/20 relative shadow-2xl" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeBlogModalRM()" class="absolute top-4 right-4 z-10 text-white hover:text-primary transition-colors p-2">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+
+            <!-- Modal Content -->
+            <div class="p-5 sm:p-6 md:p-7">
+                <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white mb-4 pr-8">
+                    RM redefine el concepto de "Pausa" 🌿
+                </h2>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+                    ¿Es posible encontrar paz en medio del caos urbano? RM acaba de inaugurar el primer "Namjun-gil" tecnológico: espacios públicos que mezclan arte, libros y sostenibilidad. 🌿✨ ¿Quieres enterarte más sobre esta iniciativa?
+                </p>
+                <a href="blog-rm.html" class="w-full bg-primary hover:bg-primary/80 text-white font-black py-3 px-4 sm:px-6 rounded-full transition-all text-sm sm:text-base shadow-lg shadow-primary/30 inline-block text-center">
+                    📖 LEE LA NOTA COMPLETA AQUÍ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="glass border-t-primary/20 py-12 px-4 mt-auto">
+        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <!-- Left Section: Logo and Made with -->
+            <div class="flex flex-col items-center md:items-start gap-2 flex-1">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">rocket_launch</span>
+                    <span class="text-2xl font-black italic tracking-tighter">ARMY UNIVERSE</span>
+                </div>
+                <p class="text-slate-500 text-sm">Hecho con 💜</p> 
+            </div>
+            
+            <!-- Center Section: Follow Us + Social Icons -->
+            <div class="flex flex-col items-center gap-3 flex-1">
+                <p class="text-slate-300 text-sm font-semibold">Siguenos en nuestras redes</p>
+                <div class="flex gap-6">
+                    <a aria-label="Instagram"
+                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
+                        href="#">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a aria-label="TikTok"
+                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
+                        href="#">
+                        <i class="fa-brands fa-tiktok text-lg"></i>
+                    </a>
+                    <a aria-label="Facebook"
+                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
+                        href="#">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Section: Copyright -->
+            <div class="text-slate-500 text-[10px] uppercase font-bold tracking-widest text-center md:text-right flex-1">
+                © 2026 ARMY UNIVERSE — Caminando junto a BTS.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
