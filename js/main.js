@@ -279,3 +279,37 @@ if (document.getElementById('disqus_thread')) {
     })();
 }
 
+
+// Share button functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const shareButton = document.getElementById('share-button');
+    if (shareButton) {
+        shareButton.addEventListener('click', async () => {
+            const shareData = {
+                title: document.title,
+                text: '¡Mira este increíble artículo de Army Universe!',
+                url: window.location.href
+            };
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    // Fallback para navegadores de escritorio antiguos
+                    await navigator.clipboard.writeText(window.location.href);
+                    
+                    // Simple tooltip feedback
+                    const originalText = shareButton.innerHTML;
+                    shareButton.innerHTML = '✅ ¡Enlace copiado!';
+                    setTimeout(() => {
+                        shareButton.innerHTML = originalText;
+                    }, 2000);
+                }
+            } catch (err) {
+                // Ignore AbortError which occurs when user cancels the share dialog
+                if (err.name !== 'AbortError') {
+                    console.error('Error compartiendo:', err);
+                }
+            }
+        });
+    }
+});
