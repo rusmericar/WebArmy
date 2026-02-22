@@ -5,278 +5,32 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Raíces Moradas | The Purple Blog</title>
+    
+    <!-- Tailwind CSS & Config -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: { "primary": "#ad2bee", "background-dark": "#0a0510", "background-light": "#f7f6f8" },
-                    fontFamily: { "display": ["Spline Sans", "sans-serif"], "sans": ["Spline Sans", "sans-serif"] },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&family=Patrick+Hand&display=swap"
-        rel="stylesheet" />
+    <script src="js/tailwind.config.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet" />
+    
     <!-- Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            background-color: #0a0510;
-            background-image: radial-gradient(circle at 50% 20%, rgba(123, 44, 191, 0.15) 0%, transparent 60%);
-            scroll-behavior: smooth;
-        }
 
-        .article-header {
-            background: transparent;
-            border-bottom: 2px solid rgba(123, 44, 191, 0.3);
-            padding: 3rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .article-subtitle {
-            color: #ad2bee;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .article-title {
-            font-family: 'Spline Sans', sans-serif;
-            font-weight: 800;
-            font-style: italic;
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            color: #ffffff;
-            line-height: 1.2;
-            margin: 1rem 0;
-            letter-spacing: -0.03em;
-        }
-
-        .article-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            color: #a0a0a0;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        .article-content {
-            color: #c0c0c0;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: justify;
-        }
-
-        .article-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .article-content strong {
-            color: #ad2bee;
-            font-weight: 700;
-        }
-
-        .article-section-title {
-            font-family: 'Spline Sans', sans-serif;
-            font-weight: 800;
-            font-style: italic;
-            font-size: 1.8rem;
-            color: #ad2bee;
-            margin: 2rem 0 1.5rem 0;
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-        }
-
-        .highlight-point {
-            background: rgba(30, 10, 50, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-left: 4px solid #ad2bee;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-point:hover {
-            transform: translateX(8px);
-            background: rgba(30, 10, 50, 0.8);
-            box-shadow: 0 10px 30px rgba(173, 44, 238, 0.2);
-        }
-
-        .highlight-point strong {
-            color: #ad2bee;
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .quote-section {
-            background: linear-gradient(135deg, rgba(123, 44, 191, 0.15) 0%, rgba(173, 44, 238, 0.1) 100%);
-            border-left: 5px solid #ad2bee;
-            padding: 2rem;
-            margin: 2.5rem 0;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .quote-text {
-            font-size: 1.3rem;
-            color: #ad2bee;
-            font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .quote-author {
-            color: #7b2cbf;
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .call-to-action {
-            background: linear-gradient(135deg, #7b2cbf 0%, #ad2bee 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2.5rem 0;
-            text-align: center;
-        }
-
-        .cta-title {
-            font-family: 'Spline Sans', sans-serif;
-            font-weight: 800;
-            font-style: italic;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .cta-text {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .engagement-buttons {
-            display: flex;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .engagement-btn {
-            background: rgba(123, 44, 191, 0.2);
-            border: 1px solid #ad2bee;
-            color: #ad2bee;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .engagement-btn:hover {
-            background: #ad2bee;
-            color: white;
-            box-shadow: 0 8px 20px rgba(173, 44, 238, 0.3);
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(173, 44, 238, 0.1);
-            border: 1px solid #7b2cbf;
-            color: #ad2bee;
-            padding: 0.7rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: #ad2bee;
-            color: white;
-            box-shadow: 0 8px 20px rgba(173, 44, 238, 0.3);
-        }
-
-        .comment-counter {
-            color: #7b2cbf;
-            font-weight: 700;
-            text-align: center;
-            margin-top: 2rem;
-        }
-    </style>
+    <!-- Global Scripts (Deferred) -->
+    <script defer src="js/components.js"></script>
+    <script defer src="js/main.js"></script>
 </head>
 
 <body class="text-slate-100 min-h-screen font-sans bg-[#0a0510] flex flex-col">
 
-    <!-- Standardized Header (igual que index.html) -->
-    <header
-        class="sticky top-0 z-50 w-full border-b border-primary/20 bg-[#0a0510]/80 backdrop-blur-md px-6 lg:px-20 py-4">
-        <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
-            <div class="flex items-center gap-8">
-                <a href="index.html" class="flex items-center gap-2 text-primary">
-                    <span class="material-symbols-outlined text-3xl font-bold">auto_awesome</span>
-                    <span class="text-xl font-800 tracking-tighter uppercase italic">Army Universe</span>
-                </a>
-                <nav class="hidden md:flex items-center gap-6">
-                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Inicio</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors text-primary"
-                        href="blog.html">Blog</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors"
-                        href="eventos.html">Eventos</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors"
-                        href="recursos.html">Recursos</a>
-                </nav>
-            </div>
-            <div class="flex items-center gap-4 flex-1 justify-end">
-                <a href="https://discord.gg/efgTg5SNgX" target="_blank"
-                    class="hidden md:flex bg-primary hover:scale-105 transition-transform text-white px-6 py-2 rounded-full font-bold text-xs items-center gap-2 shadow-lg shadow-primary/30">
-                    <i class="fa-brands fa-discord text-sm"></i>
-                    ÚNETE A NUESTRO DISCORD
-                </a>
-                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-expanded="false">
-                    <span class="material-symbols-outlined text-3xl">menu</span>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-full left-0 w-full bg-[#0a0510]/95 backdrop-blur-xl border-b border-primary/20 p-6 flex flex-col gap-4 shadow-xl">
-            <a class="text-lg font-bold hover:text-primary transition-colors" href="index.html">Inicio</a>
-            <a class="text-lg font-bold hover:text-primary transition-colors text-primary" href="blog.html">Blog</a>
-            <a class="text-lg font-bold hover:text-primary transition-colors" href="eventos.html">Eventos</a>
-            <a class="text-lg font-bold hover:text-primary transition-colors" href="recursos.html">Recursos</a>
-            <a href="https://discord.gg/efgTg5SNgX" target="_blank"
-                class="bg-primary text-white px-6 py-3 rounded-full font-bold text-center flex items-center justify-center gap-2 mt-2">
-                <i class="fa-brands fa-discord"></i> Únete a nuestro Discord
-            </a>
-        </div>
-    </header>
+    <!-- Standardized Header -->
+    <div id="header-container"></div>
 
     <main class="max-w-[900px] mx-auto px-6 py-12">
         <a href="blog.html" class="back-button">← Volver al blog</a>
@@ -384,37 +138,8 @@
         </article>
     </main>
 
-    <footer class="glass border-t border-white/10 py-12 px-4 mt-auto">
-        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex flex-col items-center md:items-start gap-2 flex-1">
-                <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">rocket_launch</span>
-                    <span class="text-2xl font-black italic tracking-tighter">ARMY UNIVERSE</span>
-                </div>
-                <p class="text-slate-500 text-sm">Hecho con 💜</p>
-            </div>
-            <div class="flex flex-col items-center gap-3 flex-1">
-                <p class="text-slate-300 text-sm font-semibold">Siguenos en nuestras redes</p>
-                <div class="flex gap-6">
-                    <a aria-label="Instagram"
-                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors"
-                        href="https://www.instagram.com/armys_universee/"><i
-                            class="fa-brands fa-instagram text-lg"></i></a>
-                    <a aria-label="TikTok"
-                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors"
-                        href="#"><i class="fa-brands fa-tiktok text-lg"></i></a>
-                </div>
-            </div>
-            <div
-                class="text-slate-500 text-[10px] uppercase font-bold tracking-widest text-center md:text-right flex-1">
-                © 2026 ARMY UNIVERSE — Caminando junto a BTS.
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-
-
+    <!-- Standardized Footer -->
+    <div id="footer-container"></div>
 </body>
 
 </html>

@@ -5,219 +5,32 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Eventos Army Perú | Army Universe</title>
-    <!-- Tailwind CSS -->
+    
+    <!-- Tailwind CSS & Config -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#ad2bee",
-                        "background-light": "#f7f6f8",
-                        "background-dark": "#1c1022",
-                    },
-                    fontFamily: {
-                        "display": ["Spline Sans", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&family=Patrick+Hand&display=swap"
-        rel="stylesheet" />
+    <script src="js/tailwind.config.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet" />
+    
     <!-- Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <!-- FontAwesome (Cloudflare CDN) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Post-its Custom Styles -->
-    <style>
-        /* Hero Section - Remove white border effect */
-        section.relative.overflow-hidden.rounded-xl {
-            border: none !important;
-            box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            outline: none !important;
-        }
-
-        section.relative.overflow-hidden.rounded-xl img {
-            border: none !important;
-            outline: none !important;
-            display: block;
-            margin: 0;
-            padding: 0;
-        }
-
-        .post-it {
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
-            will-change: transform;
-            font-family: 'Patrick Hand', cursive;
-        }
-
-        .post-it:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 20px rgba(173, 43, 238, 0.2);
-            z-index: 10;
-        }
-
-        /* Cinta adhesiva realista */
-        .tape {
-            position: absolute;
-            top: -8px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-2deg);
-            width: 80px;
-            height: 24px;
-            background: linear-gradient(135deg,
-                    rgba(255, 248, 220, 0.85) 0%,
-                    rgba(255, 250, 205, 0.9) 50%,
-                    rgba(255, 248, 220, 0.85) 100%);
-            border-radius: 2px;
-            box-shadow:
-                0 1px 2px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.05);
-            z-index: 20;
-        }
-
-        .tape::before {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            right: 3px;
-            bottom: 3px;
-            background: repeating-linear-gradient(90deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(0, 0, 0, 0.02) 2px,
-                    rgba(0, 0, 0, 0.02) 4px);
-            border-radius: 1px;
-        }
-
-        .post-it::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 0%, transparent 100%);
-            border-radius: 0.5rem 0.5rem 0 0;
-        }
-
-        /* Animation for post-its when page loads */
-        @keyframes floatIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px) rotate(0deg);
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .post-it {
-            animation: floatIn 0.6s ease-out forwards;
-        }
-
-        .post-it:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .post-it:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .post-it:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .post-it:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .post-it:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-
-        .post-it:nth-child(6) {
-            animation-delay: 0.6s;
-        }
-
-        .post-it:nth-child(7) {
-            animation-delay: 0.7s;
-        }
-
-        .post-it:nth-child(8) {
-            animation-delay: 0.8s;
-        }
-    </style>
+    <!-- Global Scripts (Deferred) -->
+    <script defer src="js/components.js"></script>
+    <script defer src="js/main.js"></script>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
 
     <!-- Standardized Header -->
-    <header
-        class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-4">
-        <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
-            <div class="flex items-center gap-8">
-                <a href="index.html" class="flex items-center gap-2 text-primary">
-                    <span class="material-symbols-outlined text-3xl font-bold">auto_awesome</span>
-                    <h1 class="text-xl font-800 tracking-tighter uppercase italic">Army Universe</h1>
-                </a>
-                <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center gap-6">
-                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Inicio</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="blog.html">Blog</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors text-primary"
-                        href="eventos.html">Eventos</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors"
-                        href="recursos.html">Recursos</a>
-                </nav>
-            </div>
-
-            <div class="flex items-center gap-4 flex-1 justify-end">
-                <a href="https://discord.gg/efgTg5SNgX" target="_blank"
-                    class="hidden md:flex bg-primary hover:scale-105 transition-transform text-white px-6 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary/30">
-                    <i class="fa-brands fa-discord text-sm"></i>
-                    ÚNETE A NUESTRO DISCORD
-                </a>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-expanded="false">
-                    <span class="material-symbols-outlined text-3xl">menu</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Nav -->
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-primary/20 p-6 flex flex-col gap-4 shadow-xl">
-            <a class="text-lg font-bold hover:text-primary transition-colors" href="index.html">Inicio</a>
-            <a class="text-lg font-bold hover:text-primary transition-colors" href="blog.html">Blog</a>
-            <a class="text-lg font-bold hover:text-primary transition-colors text-primary"
-                href="eventos.html">Eventos</a>
-            <a class="text-lg font-bold hover:text-primary transition-colors" href="recursos.html">Recursos</a>
-            <a href="https://discord.gg/efgTg5SNgX" target="_blank"
-                class="bg-primary text-white px-6 py-3 rounded-full font-bold text-center flex items-center justify-center gap-2 mt-2">
-                <i class="fa-brands fa-discord"></i> Únete a nuestro Discord
-            </a>
-        </div>
-    </header>
+    <div id="header-container"></div>
 
     <main class="flex-grow pt-10 pb-20 px-4 max-w-7xl mx-auto w-full">
         <!-- Hero Section -->
@@ -509,73 +322,12 @@
     </main>
 
     <!-- Standardized Footer -->
-    <footer class="glass border-t-primary/20 py-12 px-4 mt-auto">
-        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <!-- Left Section: Logo and Made with -->
-            <div class="flex flex-col items-center md:items-start gap-2 flex-1">
-                <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">rocket_launch</span>
-                    <span class="text-2xl font-black italic tracking-tighter">ARMY UNIVERSE</span>
-                </div>
-                <p class="text-slate-500 text-sm">Hecho con 💜</p>
-            </div>
+    <div id="footer-container"></div>
 
-            <!-- Center Section: Follow Us + Social Icons -->
-            <div class="flex flex-col items-center gap-3 flex-1">
-                <p class="text-slate-300 text-sm font-semibold">Siguenos en nuestras redes</p>
-                <div class="flex gap-6">
-                    <a aria-label="Instagram"
-                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
-                        href="https://www.instagram.com/armys_universee/">
-                        <i class="fa-brands fa-instagram text-lg"></i>
-                    </a>
-                    <a aria-label="TikTok"
-                        class="size-10 glass rounded-full flex items-center justify-center hover:bg-primary transition-colors hover:shadow-[0_0_15px_rgba(173,43,238,0.5)]"
-                        href="#">
-                        <i class="fa-brands fa-tiktok text-lg"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right Section: Copyright -->
-            <div
-                class="text-slate-500 text-[10px] uppercase font-bold tracking-widest text-center md:text-right flex-1">
-                © 2026 ARMY UNIVERSE — Caminando junto a BTS.
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    
+    
 
     <!-- Events Filter Script -->
-    <script>
-        function filterEvents(category) {
-            const eventCards = document.querySelectorAll('.event-card');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-
-            // Update button styles
-            filterButtons.forEach(btn => {
-                btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
-                btn.classList.add('bg-primary/10', 'text-primary');
-            });
-
-            const activeButton = document.getElementById(`filter-${category}`);
-            if (activeButton) {
-                activeButton.classList.remove('bg-primary/10', 'text-primary');
-                activeButton.classList.add('bg-primary', 'text-white', 'shadow-md');
-            }
-
-            // Filter events
-            eventCards.forEach(card => {
-                if (category === 'todos') {
-                    card.style.display = 'flex';
-                } else {
-                    const cardCategory = card.getAttribute('data-category');
-                    card.style.display = cardCategory === category ? 'flex' : 'none';
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>

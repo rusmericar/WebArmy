@@ -1,0 +1,47 @@
+<header
+    class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-4">
+    <div class="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
+        <div class="flex items-center gap-8">
+            <a href="index.html" class="flex items-center gap-2 text-primary">
+                <span class="material-symbols-outlined text-3xl font-bold">auto_awesome</span>
+                <h1 class="text-xl font-800 tracking-tighter uppercase italic">Army Universe</h1>
+            </a>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-6" id="desktop-nav">
+                <a class="nav-link text-sm font-semibold hover:text-primary transition-colors"
+                    href="index.html">Inicio</a>
+                <a class="nav-link text-sm font-semibold hover:text-primary transition-colors" href="blog.html">Blog</a>
+                <a class="nav-link text-sm font-semibold hover:text-primary transition-colors"
+                    href="eventos.html">Eventos</a>
+                <a class="nav-link text-sm font-semibold hover:text-primary transition-colors"
+                    href="recursos.html">Recursos</a>
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-4 flex-1 justify-end">
+            <a href="https://discord.gg/efgTg5SNgX" target="_blank"
+                class="hidden md:flex bg-primary hover:scale-105 transition-transform text-white px-6 py-2 rounded-full font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary/30">
+                <i class="fa-brands fa-discord text-sm"></i>
+                ÚNETE A NUESTRO DISCORD
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-expanded="false">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-primary/20 p-6 flex flex-col gap-4 shadow-xl">
+        <a class="nav-link text-lg font-bold hover:text-primary transition-colors" href="index.html">Inicio</a>
+        <a class="nav-link text-lg font-bold hover:text-primary transition-colors" href="blog.html">Blog</a>
+        <a class="nav-link text-lg font-bold hover:text-primary transition-colors" href="eventos.html">Eventos</a>
+        <a class="nav-link text-lg font-bold hover:text-primary transition-colors" href="recursos.html">Recursos</a>
+        <a href="https://discord.gg/efgTg5SNgX" target="_blank"
+            class="bg-primary text-white px-6 py-3 rounded-full font-bold text-center flex items-center justify-center gap-2 mt-2">
+            <i class="fa-brands fa-discord"></i> Únete a nuestro Discord
+        </a>
+    </div>
+</header>

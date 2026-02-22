@@ -208,3 +208,74 @@ document.addEventListener('keydown', (e) => {
         });
     }
 });
+
+
+// Extracted Inline Scripts
+function applyFilter(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('filter-active');
+                btn.classList.add('text-slate-400');
+            });
+            const selectedBtn = document.getElementById('filter-' + category);
+            selectedBtn.classList.add('filter-active');
+            selectedBtn.classList.remove('text-slate-400');
+
+            const items = document.querySelectorAll('.blog-item');
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'todas' || itemCategory === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.classList.remove('hidden-item'), 10);
+                } else {
+                    item.classList.add('hidden-item');
+                    setTimeout(() => item.style.display = 'none', 400);
+                }
+            });
+        }
+
+function filterEvents(category) {
+            const eventCards = document.querySelectorAll('.event-card');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            // Update button styles
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                btn.classList.add('bg-primary/10', 'text-primary');
+            });
+
+            const activeButton = document.getElementById(`filter-${category}`);
+            if (activeButton) {
+                activeButton.classList.remove('bg-primary/10', 'text-primary');
+                activeButton.classList.add('bg-primary', 'text-white', 'shadow-md');
+            }
+
+            // Filter events
+            eventCards.forEach(card => {
+                if (category === 'todos') {
+                    card.style.display = 'flex';
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    card.style.display = cardCategory === category ? 'flex' : 'none';
+                }
+            });
+        }
+
+
+// Initialize Disqus dynamically if the container exists
+if (document.getElementById('disqus_thread')) {
+    var disqus_config = function () {
+        this.page.url = window.location.href;
+        // Extract filename without extension for identifier
+        var path = window.location.pathname;
+        var pageName = path.split('/').pop().split('.')[0] || 'index';
+        this.page.identifier = pageName;
+    };
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://army-universe.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+}
+
